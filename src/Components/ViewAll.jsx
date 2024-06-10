@@ -5,7 +5,7 @@ import axios from 'axios'
 const ViewAll = () => {
     const [data, changeData] = useState([])
     const fetchData = () => {
-        axios.get("https://anishpdm.github.io/dummy-api-new/student.json").then(
+        axios.get("https://courseapplogix.onrender.com/getdata").then(
             (response) => {
                 console.log(response.data)
                 changeData(response.data)
@@ -23,11 +23,14 @@ const ViewAll = () => {
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Id</th>
                                     <th scope="col">Firstname</th>
-                                    <th scope="col">Address</th>
+                                    <th scope="col">Lastname</th>
                                     <th scope="col">College</th>
-                                    <th scope="col">Semester</th>
+                                    <th scope="col">DOB</th>
+                                    <th scope="col">Course</th>
+                                    <th scope="col">Mobile</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Address</th>
 
 
                                 </tr>
@@ -36,12 +39,16 @@ const ViewAll = () => {
                                 {
                                     data.map((value, index) => {
                                         return <tr>
-                                                <th scope="row">1</th>
-                                                <td>121</td>
-                                                <td>soniya</td>
-                                                <td>acf</td>
-                                                <td>fisat</td>
-                                                <td> 2</td>
+                                                <th scope="row">{index}</th>
+                                                <td>{value.firstname}</td>
+                                                <td>{value.lastname}</td>
+                                                <td>{value.college}</td>
+                                                <td>{value.dob}</td>
+                                                <td>{value.course}</td>
+                                                <td>{value.mobile}</td>
+                                                <td>{value.email}</td>
+                                                <td>{value.address}</td>
+                                              
                                             </tr>
                                         }
                                     )
